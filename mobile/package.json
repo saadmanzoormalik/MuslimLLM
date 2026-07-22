@@ -1,0 +1,24 @@
+{
+  "name": "muslim-llm-ios",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "sync": "cap sync ios",
+    "open": "cap open ios",
+    "doctor": "cap doctor ios"
+  },
+  "dependencies": {
+    "@capacitor/app": "latest",
+    "@capacitor/browser": "latest",
+    "@capacitor/core": "latest",
+    "@capacitor/filesystem": "latest",
+    "@capacitor/preferences": "latest",
+    "@capacitor/splash-screen": "latest",
+    "@capacitor/status-bar": "latest"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "latest",
+    "@capacitor/ios": "latest",
+    "typescript": "latest"
+  }
+}

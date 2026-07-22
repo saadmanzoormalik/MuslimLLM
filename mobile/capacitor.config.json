@@ -1,0 +1,27 @@
+{
+  "appId": "com.muslimllm.app",
+  "appName": "Muslim LLM",
+  "webDir": "www",
+  "server": {
+    "url": "https://muslim-llm.148.113.203.232.sslip.io",
+    "cleartext": false,
+    "allowNavigation": [
+      "muslim-llm.148.113.203.232.sslip.io"
+    ]
+  },
+  "ios": {
+    "contentInset": "always",
+    "preferredContentMode": "mobile"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "backgroundColor": "#082e25",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#082e25"
+    }
+  }
+}
