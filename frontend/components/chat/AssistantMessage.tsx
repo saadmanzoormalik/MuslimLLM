@@ -40,8 +40,8 @@ export function AssistantMessage({
   const reasoningActive = isThinking || Boolean(reasoningPlan?.tasks.some((task) => task.status === "active"));
 
   return (
-    <article className="mb-9 flex gap-3 border-t border-border/65 pt-7 sm:gap-4" aria-label="Muslim LLM responded" data-message-role="assistant">
-      <div className="mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-xl border bg-card shadow-sm sm:h-9 sm:w-9" aria-hidden="true">
+    <article className="mb-8 flex gap-0 border-t border-border/55 pt-6 sm:mb-9 sm:gap-4 sm:pt-7" aria-label="Muslim LLM responded" data-message-role="assistant">
+      <div className="mt-1 hidden h-9 w-9 shrink-0 place-items-center rounded-xl border bg-card shadow-sm sm:grid" aria-hidden="true">
         <Bot size={17} />
       </div>
       <div className="min-w-0 flex-1">

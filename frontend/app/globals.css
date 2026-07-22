@@ -110,6 +110,21 @@ pre {
     inset 0 1px 0 color-mix(in srgb, hsl(var(--accent-gold)) 18%, white);
 }
 
+@media (max-width: 899px) {
+  .geometric-field::before {
+    opacity: 0.045;
+  }
+
+  .composer-panel {
+    box-shadow: 0 8px 30px color-mix(in srgb, hsl(var(--foreground)) 10%, transparent);
+  }
+
+  .assistant-message {
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+}
+
 .assistant-message {
   color: hsl(var(--foreground));
   font-size: 0.98rem;

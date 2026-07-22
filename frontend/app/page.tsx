@@ -457,38 +457,41 @@ function ChatPageContent() {
       ) : null}
 
       <section className="geometric-field flex min-w-0 flex-1 flex-col">
-        <header className="relative z-10 flex min-h-16 flex-wrap items-center justify-between gap-2 border-b bg-background/80 px-3 py-2 backdrop-blur-xl sm:px-5 xl:h-16 xl:flex-nowrap xl:py-0">
-          <div className="flex min-w-0 w-full items-center gap-3 xl:w-auto">
+        <header className="relative z-10 flex h-14 shrink-0 items-center justify-between border-b bg-background/88 px-3 backdrop-blur-xl min-[900px]:h-16 min-[900px]:px-5">
+          <div className="flex min-w-0 items-center gap-3">
             <Button aria-label="Open navigation" className="h-9 w-9 shrink-0 p-0 min-[900px]:hidden" onClick={() => setSidebarOpen(true)} title="Open navigation">
               <Menu size={17} />
             </Button>
-            <div className="min-w-0">
+            <div className="absolute left-1/2 max-w-[55vw] -translate-x-1/2 text-center min-[900px]:static min-[900px]:max-w-none min-[900px]:translate-x-0 min-[900px]:text-left">
               <div className="flex min-w-0 items-center gap-2">
                 <h1 className="truncate text-sm font-semibold sm:text-base">{activeProject?.name || "Muslim LLM"}</h1>
-                {activeProject ? <Badge>Project</Badge> : null}
-                <span className={`hidden rounded-full px-2 py-0.5 text-[11px] font-medium sm:inline-flex ${ready === false ? "bg-red-500/10 text-red-700 dark:text-red-300" : "bg-primary/10 text-primary"}`}>
+                {activeProject ? <span className="hidden min-[900px]:inline-flex"><Badge>Project</Badge></span> : null}
+                <span className={`hidden rounded-full px-2 py-0.5 text-[11px] font-medium min-[900px]:inline-flex ${ready === false ? "bg-red-500/10 text-red-700 dark:text-red-300" : "bg-primary/10 text-primary"}`}>
                   {ready === false ? "Offline" : "Ready"}
                 </span>
               </div>
             </div>
           </div>
-          <div className="grid w-full min-w-0 grid-cols-5 gap-1 sm:flex sm:items-center sm:justify-start sm:gap-1.5 xl:w-auto xl:justify-end">
+          <Button aria-label={activeProject ? "New project chat" : "New chat"} className="h-9 w-9 shrink-0 p-0 min-[900px]:hidden" onClick={() => newChat()} title={activeProject ? "New project chat" : "New chat"}>
+            <MessageSquarePlus size={18} />
+          </Button>
+          <div className="hidden items-center justify-end gap-1.5 min-[900px]:flex">
             <QuickContextTransfer />
             <Link
-              className="inline-flex h-11 min-w-0 flex-col items-center justify-center gap-0.5 rounded-lg border border-border bg-card px-1 text-[9px] font-semibold text-foreground shadow-sm transition hover:border-primary/30 hover:bg-muted sm:h-9 sm:w-auto sm:flex-row sm:gap-1.5 sm:rounded-full sm:px-2.5 sm:text-xs"
+              className="inline-flex h-9 items-center justify-center gap-1.5 rounded-full border border-border bg-card px-2.5 text-xs font-semibold text-foreground shadow-sm transition hover:border-primary/30 hover:bg-muted"
               href="/onboarding?preview=1"
               title="Preview onboarding"
             >
               <Compass aria-hidden="true" size={15} />
               <span className="truncate">Onboarding</span>
             </Link>
-            <Button className="h-11 min-w-0 flex-col gap-0.5 rounded-lg px-1 text-[9px] sm:h-9 sm:w-auto sm:flex-row sm:gap-1.5 sm:rounded-full sm:px-2.5 sm:text-xs" onClick={() => newChat()} title={activeProject ? "New project chat" : "New chat"}>
+            <Button className="h-9 rounded-full px-2.5 text-xs" onClick={() => newChat()} title={activeProject ? "New project chat" : "New chat"}>
               <MessageSquarePlus size={15} /> <span className="truncate">{activeProject ? "Project chat" : "New"}</span>
             </Button>
-            <Button aria-label={dark ? "Use light theme" : "Use dark theme"} className="h-11 min-w-0 flex-col gap-0.5 rounded-lg px-1 text-[9px] sm:h-9 sm:w-auto sm:flex-row sm:gap-1.5 sm:rounded-full sm:px-2.5 sm:text-xs" title={dark ? "Use light theme" : "Use dark theme"} onClick={() => setDark(!dark)}>
+            <Button aria-label={dark ? "Use light theme" : "Use dark theme"} className="h-9 rounded-full px-2.5 text-xs" title={dark ? "Use light theme" : "Use dark theme"} onClick={() => setDark(!dark)}>
               {dark ? <Sun size={16} /> : <Moon size={16} />} <span>Theme</span>
             </Button>
-            <Button aria-label="Open sources" className="h-11 min-w-0 flex-col gap-0.5 rounded-lg px-1 text-[9px] sm:h-9 sm:w-auto sm:flex-row sm:gap-1.5 sm:rounded-full sm:px-2.5 sm:text-xs" title="Open sources" onClick={() => setDrawerOpen(true)}>
+            <Button aria-label="Open sources" className="h-9 rounded-full px-2.5 text-xs" title="Open sources" onClick={() => setDrawerOpen(true)}>
               <PanelRightOpen size={16} /> <span>Sources</span>
             </Button>
           </div>
@@ -498,7 +501,7 @@ function ChatPageContent() {
           {messages.length === 0 ? (
             <EmptyState activeProject={activeProject} onPrompt={sendMessage} />
           ) : (
-            <div className="mx-auto max-w-3xl px-4 py-8 sm:py-10">
+            <div className="mx-auto max-w-3xl px-4 pb-6 pt-5 sm:py-10">
               {messages.map((message, index) => {
                 const priorUser = [...messages.slice(0, index)].reverse().find((item) => item.role === "user");
                 return (
@@ -518,9 +521,9 @@ function ChatPageContent() {
           )}
         </div>
 
-        <footer className="relative z-10 bg-gradient-to-t from-background via-background/92 to-transparent px-3 pb-3 pt-2">
+        <footer className="relative z-10 shrink-0 bg-gradient-to-t from-background via-background/96 to-transparent px-2.5 pb-[max(0.65rem,env(safe-area-inset-bottom))] pt-2 sm:px-3 sm:pb-3">
           <div className="mx-auto max-w-3xl">
-            <form className="composer-panel rounded-2xl border p-2 shadow-2xl sm:p-2.5" onSubmit={handleSubmit}>
+            <form className="composer-panel rounded-[22px] border p-1.5 sm:rounded-2xl sm:p-2.5" onSubmit={handleSubmit}>
               <Textarea
                 ref={inputRef}
                 name="message"
@@ -534,15 +537,15 @@ function ChatPageContent() {
                 }}
                 placeholder="Ask with Muslim values..."
                 style={{ minHeight: 0 }}
-                className="h-14 max-h-40 min-h-0 w-full resize-none border-0 bg-transparent text-[15px] leading-6 shadow-none placeholder:text-muted-foreground/70 focus:ring-0 sm:h-16"
+                className="h-12 max-h-40 min-h-0 w-full resize-none border-0 bg-transparent px-3 py-2 text-base leading-6 shadow-none placeholder:text-muted-foreground/70 focus:ring-0 sm:h-16 sm:text-[15px]"
               />
-              <div className="flex items-center justify-between gap-2 px-2 pb-1">
-                <div className="flex shrink-0 items-center rounded-lg bg-muted/70 p-0.5" role="group" aria-label="Reasoning depth">
+              <div className="flex items-center justify-between gap-2 px-1.5 pb-1">
+                <div className="flex min-w-0 items-center rounded-full bg-muted/70 p-0.5" role="group" aria-label="Reasoning depth">
                   {(["auto", "quick", "standard", "deep"] as ReasoningMode[]).map((depth) => (
                     <button
                       key={depth}
                       type="button"
-                      className={`h-7 rounded-md px-1.5 text-[10px] font-medium capitalize transition sm:px-2 sm:text-[11px] ${reasoningDepth === depth ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+                      className={`h-7 rounded-full px-1.5 text-[10px] font-medium capitalize transition sm:px-2 sm:text-[11px] ${reasoningDepth === depth ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
                       onClick={() => setReasoningDepth(depth)}
                       aria-pressed={reasoningDepth === depth}
                     >
@@ -551,13 +554,13 @@ function ChatPageContent() {
                   ))}
                 </div>
                 <div className="ml-auto flex gap-2">
-                  <Button aria-label="Regenerate response" type="button" disabled={!lastUserMessage || loading} onClick={() => lastUserMessage && sendMessage(lastUserMessage.content, { reuseUserMessage: lastUserMessage })} title="Regenerate response">
+                  <Button className="hidden sm:inline-flex" aria-label="Regenerate response" type="button" disabled={!lastUserMessage || loading} onClick={() => lastUserMessage && sendMessage(lastUserMessage.content, { reuseUserMessage: lastUserMessage })} title="Regenerate response">
                     <RefreshCcw size={16} /> <span className="sm:hidden">Retry</span><span className="hidden sm:inline">Regenerate</span>
                   </Button>
                   {loading ? (
-                    <Button type="button" onClick={stopGeneration}><Square size={15} /> Stop</Button>
+                    <Button className="h-9 w-9 rounded-full p-0 sm:w-auto sm:px-3" type="button" onClick={stopGeneration}><Square size={15} /> <span className="hidden sm:inline">Stop</span></Button>
                   ) : (
-                    <PrimaryButton className="rounded-xl px-4" type="submit"><Send size={16} /> Send</PrimaryButton>
+                    <PrimaryButton aria-label="Send message" className="h-9 w-9 rounded-full p-0 sm:w-auto sm:rounded-xl sm:px-4" type="submit"><Send size={16} /> <span className="hidden sm:inline">Send</span></PrimaryButton>
                   )}
                 </div>
               </div>
@@ -579,25 +582,25 @@ function EmptyState({ activeProject, onPrompt }: { activeProject?: Project; onPr
   ];
 
   return (
-    <div className="mx-auto flex min-h-full max-w-3xl flex-col justify-center px-4 py-10">
-      <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border bg-card/80 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
+    <div className="mx-auto flex min-h-full max-w-3xl flex-col justify-center px-5 pb-20 pt-8 sm:px-4 sm:py-10">
+      <div className="mb-4 inline-flex w-fit items-center gap-2 text-xs font-medium text-muted-foreground sm:mb-5 sm:rounded-full sm:border sm:bg-card/80 sm:px-3 sm:py-1 sm:shadow-sm">
         <Sparkles size={14} /> {activeProject ? activeProject.name : "General workspace"}
       </div>
-      <h2 className="display-type max-w-3xl text-4xl font-semibold leading-[1.02] sm:text-6xl">
+      <h2 className="display-type max-w-3xl text-[2.25rem] font-semibold leading-[1.08] sm:text-6xl sm:leading-[1.02]">
         What can I help with?
       </h2>
       <div className="mt-7 grid gap-2 sm:grid-cols-2">
-        {prompts.map((prompt) => (
+        {prompts.map((prompt, index) => (
           <button
             key={prompt}
-            className="prompt-chip rounded-xl border px-4 py-3 text-left text-sm font-medium transition hover:-translate-y-0.5 hover:border-primary/40"
+            className={`prompt-chip rounded-xl border px-4 py-3 text-left text-sm font-medium transition hover:-translate-y-0.5 hover:border-primary/40 ${index > 1 ? "hidden sm:block" : ""}`}
             onClick={() => onPrompt(prompt)}
           >
             {prompt}
           </button>
         ))}
         <a
-          className="prompt-chip rounded-xl border px-4 py-3 text-left text-sm font-medium transition hover:-translate-y-0.5 hover:border-primary/40"
+          className="prompt-chip hidden rounded-xl border px-4 py-3 text-left text-sm font-medium transition hover:-translate-y-0.5 hover:border-primary/40 sm:block"
           href="/context-sync"
         >
           <span className="inline-flex items-center gap-2"><Import size={15} /> Bring your AI life</span>
