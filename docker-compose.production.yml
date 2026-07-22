@@ -1,0 +1,335 @@
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: 10m
+    max-file: "5"
+
+x-backend-environment: &backend-environment
+  APP_NAME: Muslim LLM
+  APP_ENVIRONMENT: production
+  ENVIRONMENT: production
+  APP_VERSION: ${APP_VERSION}
+  FRONTEND_URL: ${PUBLIC_FRONTEND_URL}
+  PUBLIC_FRONTEND_URL: ${PUBLIC_FRONTEND_URL}
+  PUBLIC_BACKEND_URL: ${PUBLIC_BACKEND_URL}
+  DATABASE_URL: ${DATABASE_URL}
+  REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+  SECRET_KEY: ${SECRET_KEY}
+  AUTH_SECRET_KEY: ${AUTH_SECRET_KEY}
+  ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+  LOCAL_PRIVATE_MODE: ${LOCAL_PRIVATE_MODE:-true}
+  ALLOW_EXTERNAL_LLM: ${ALLOW_EXTERNAL_LLM:-false}
+  ALLOW_TELEMETRY: ${ALLOW_TELEMETRY:-false}
+  LLM_API_BASE: ${LLM_API_BASE:-http://ollama:11434/v1}
+  LLM_API_KEY: ${LLM_API_KEY:-}
+  LLM_MODEL: ${LLM_MODEL:-muslim-llm-local}
+  OPEN_SOURCE_LLM_FALLBACK: "false"
+  LLM_CONNECT_TIMEOUT: "5"
+  LLM_READ_TIMEOUT: "150"
+  LLM_MAX_TOKENS: "900"
+  LLM_KEEP_WARM: ${LLM_KEEP_WARM:-true}
+  LLM_WARMUP_ON_START: ${LLM_WARMUP_ON_START:-true}
+  LLM_KEEP_ALIVE_DURATION: ${LLM_KEEP_ALIVE_DURATION:-10m}
+  LLM_MAX_CONCURRENT_REQUESTS: ${LLM_MAX_CONCURRENT_REQUESTS:-2}
+  LLM_REQUEST_QUEUE_TIMEOUT_SECONDS: ${LLM_REQUEST_QUEUE_TIMEOUT_SECONDS:-10}
+  LLM_QUICK_MAX_TOKENS: ${LLM_QUICK_MAX_TOKENS:-500}
+  LLM_STANDARD_MAX_TOKENS: ${LLM_STANDARD_MAX_TOKENS:-1200}
+  LLM_DEEP_MAX_TOKENS: ${LLM_DEEP_MAX_TOKENS:-3000}
+  CHAT_RECENT_MESSAGE_LIMIT: ${CHAT_RECENT_MESSAGE_LIMIT:-20}
+  CHAT_CONTEXT_TOKEN_BUDGET: ${CHAT_CONTEXT_TOKEN_BUDGET:-6000}
+  CHAT_SUMMARY_TOKEN_BUDGET: ${CHAT_SUMMARY_TOKEN_BUDGET:-800}
+  RAG_CONTEXT_TOKEN_BUDGET: ${RAG_CONTEXT_TOKEN_BUDGET:-2400}
+  RAG_RETRIEVAL_TIMEOUT_SECONDS: ${RAG_RETRIEVAL_TIMEOUT_SECONDS:-3}
+  RAG_INITIAL_TOP_K: ${RAG_INITIAL_TOP_K:-12}
+  RAG_FINAL_TOP_K: ${RAG_FINAL_TOP_K:-5}
+  EMBEDDING_API_BASE: ${EMBEDDING_API_BASE:-}
+  EMBEDDING_API_KEY: ${EMBEDDING_API_KEY:-}
+  EMBEDDING_MODEL: ${EMBEDDING_MODEL:-}
+  AUTH_ENABLED: ${AUTH_ENABLED:-true}
+  AUTH_ALLOW_GUEST: ${AUTH_ALLOW_GUEST:-true}
+  AUTH_ALLOW_EMAIL: ${AUTH_ALLOW_EMAIL:-false}
+  AUTH_ALLOW_GOOGLE: ${AUTH_ALLOW_GOOGLE:-false}
+  AUTH_ALLOW_APPLE: ${AUTH_ALLOW_APPLE:-false}
+  AUTH_PUBLIC_URL: ${PUBLIC_BACKEND_URL}
+  AUTH_EMAIL_PROVIDER: ${AUTH_EMAIL_PROVIDER:-}
+  AUTH_EMAIL_FROM: ${AUTH_EMAIL_FROM:-}
+  AUTH_ACCESS_TOKEN_MINUTES: "15"
+  AUTH_REFRESH_TOKEN_DAYS: "30"
+  AUTH_SECURE_COOKIES: ${AUTH_SECURE_COOKIES:-false}
+  AUTH_ALLOWED_ORIGINS: ${AUTH_ALLOWED_ORIGINS}
+  AUTH_ALLOWED_REDIRECT_URIS: ${AUTH_ALLOWED_REDIRECT_URIS}
+  GOOGLE_OAUTH_CLIENT_ID: ${GOOGLE_OAUTH_CLIENT_ID:-}
+  GOOGLE_OAUTH_CLIENT_SECRET: ${GOOGLE_OAUTH_CLIENT_SECRET:-}
+  GOOGLE_OAUTH_REDIRECT_URI: ${GOOGLE_OAUTH_REDIRECT_URI}
+  APPLE_CLIENT_ID: ${APPLE_CLIENT_ID:-}
+  APPLE_TEAM_ID: ${APPLE_TEAM_ID:-}
+  APPLE_KEY_ID: ${APPLE_KEY_ID:-}
+  APPLE_PRIVATE_KEY_PATH: ${APPLE_PRIVATE_KEY_PATH:-}
+  APPLE_REDIRECT_URI: ${APPLE_REDIRECT_URI}
+  ENABLE_CONTEXT_SYNC: ${ENABLE_CONTEXT_SYNC:-true}
+  ENABLE_CONTEXT_SYNC_LAB: ${ENABLE_CONTEXT_SYNC_LAB:-false}
+  CONTEXT_SYNC_ENV: production
+  CONTEXT_SYNC_TOKEN_KEY: ${CONTEXT_SYNC_TOKEN_KEY}
+  CONTEXT_SYNC_CALLBACK_BASE: ${PUBLIC_BACKEND_URL}
+  CONTEXT_SYNC_ALLOWED_RETURN_ORIGINS: ${AUTH_ALLOWED_ORIGINS}
+  CONTEXT_SYNC_INLINE_JOBS: ${CONTEXT_SYNC_INLINE_JOBS:-false}
+  CONTEXT_SYNC_LOCAL_PROCESSING: ${CONTEXT_SYNC_LOCAL_PROCESSING:-true}
+  CONTEXT_SYNC_ALLOW_CLOUD_CONTENT_UPLOAD: ${CONTEXT_SYNC_ALLOW_CLOUD_CONTENT_UPLOAD:-false}
+  CONTEXT_SYNC_ALLOW_EXECUTABLES: ${CONTEXT_SYNC_ALLOW_EXECUTABLES:-false}
+  CONTEXT_SYNC_MAX_ARCHIVE_BYTES: ${CONTEXT_SYNC_MAX_ARCHIVE_BYTES:-2147483648}
+  CONTEXT_SYNC_MAX_EXPANDED_BYTES: ${CONTEXT_SYNC_MAX_EXPANDED_BYTES:-8589934592}
+  CONTEXT_SYNC_MAX_FILES: ${CONTEXT_SYNC_MAX_FILES:-250000}
+  CHAT_FIRST_TOKEN_TIMEOUT_SECONDS: ${CHAT_FIRST_TOKEN_TIMEOUT_SECONDS:-45}
+  CHAT_TOTAL_TIMEOUT_SECONDS: ${CHAT_TOTAL_TIMEOUT_SECONDS:-180}
+  CHAT_STREAM_HEARTBEAT_SECONDS: ${CHAT_STREAM_HEARTBEAT_SECONDS:-5}
+  CHAT_MAX_RETRIES: ${CHAT_MAX_RETRIES:-1}
+  CHAT_ENABLE_FALLBACK_RESPONSE: ${CHAT_ENABLE_FALLBACK_RESPONSE:-true}
+  CHAT_ENABLE_REASONING_STATUS: ${CHAT_ENABLE_REASONING_STATUS:-true}
+  CHAT_ENABLE_REASONING_SUMMARY: ${CHAT_ENABLE_REASONING_SUMMARY:-true}
+  FABRIC_INTERNAL_API_KEY: ${FABRIC_INTERNAL_API_KEY}
+
+x-backend-service: &backend-service
+  image: muslimllm-backend:${MUSLIM_LLM_IMAGE_TAG}
+  build:
+    context: .
+    dockerfile: backend/Dockerfile.production
+  environment: *backend-environment
+  networks:
+    - muslimllm-network
+    - muslimllm-fabric
+  logging: *default-logging
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+
+services:
+  db:
+    image: pgvector/pgvector:0.8.0-pg16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    expose:
+      - "5432"
+    volumes:
+      - muslimllm-postgres-data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/001_init.sql:ro
+    networks:
+      - muslimllm-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    restart: unless-stopped
+    shm_size: 256mb
+    mem_limit: 1536m
+    cpus: 1.5
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+
+  redis:
+    image: redis:7.4.2-alpine
+    user: redis:redis
+    command: ["redis-server", "--appendonly", "yes", "--save", "60", "1", "--maxmemory", "192mb", "--maxmemory-policy", "allkeys-lru"]
+    expose:
+      - "6379"
+    volumes:
+      - muslimllm-redis-data:/data
+    networks:
+      - muslimllm-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.5
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  ollama:
+    image: ollama/ollama:latest
+    environment:
+      OLLAMA_HOST: 0.0.0.0:11434
+      OLLAMA_KEEP_ALIVE: 10m
+      OLLAMA_NUM_PARALLEL: "2"
+      OLLAMA_MAX_LOADED_MODELS: "1"
+    expose:
+      - "11434"
+    volumes:
+      - muslimllm-models:/root/.ollama
+    networks:
+      muslimllm-network:
+      muslimllm-fabric:
+        aliases:
+          - muslimllm-ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+    restart: unless-stopped
+    mem_limit: 3g
+    cpus: 2.0
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+
+  model-init:
+    image: ollama/ollama:latest
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - |
+        ollama pull qwen2.5:1.5b
+        ollama pull embeddinggemma
+        ollama create muslim-llm-local -f /model/Modelfile
+    volumes:
+      - ./ollama/Modelfile.muslim-llm-local:/model/Modelfile:ro
+    networks:
+      - muslimllm-network
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  volume-init:
+    image: alpine:3.21
+    command: ["/bin/sh", "-ec", "chown -R 10001:10001 /volumes/documents /volumes/context /volumes/updates"]
+    volumes:
+      - muslimllm-documents:/volumes/documents
+      - muslimllm-context-imports:/volumes/context
+      - muslimllm-updates:/volumes/updates
+    restart: "no"
+    networks:
+      - muslimllm-network
+    security_opt:
+      - no-new-privileges:true
+
+  migrate:
+    <<: *backend-service
+    command: ["python", "-m", "app.migrate"]
+    healthcheck:
+      disable: true
+    depends_on:
+      db:
+        condition: service_healthy
+      volume-init:
+        condition: service_completed_successfully
+    restart: "no"
+    mem_limit: 1g
+    cpus: 1.0
+
+  backend:
+    <<: *backend-service
+    container_name: muslimllm-backend
+    volumes:
+      - muslimllm-documents:/app/data/uploads
+      - muslimllm-context-imports:/app/data/context-imports
+      - muslimllm-updates:/app/data/updates
+    ports:
+      - "8200:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      model-init:
+        condition: service_completed_successfully
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    mem_limit: 1280m
+    cpus: 1.5
+
+  worker:
+    <<: *backend-service
+    container_name: muslimllm-worker
+    command: ["python", "-m", "app.context_sync.jobs.worker"]
+    volumes:
+      - muslimllm-documents:/app/data/uploads
+      - muslimllm-context-imports:/app/data/context-imports
+      - muslimllm-updates:/app/data/updates
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    mem_limit: 768m
+    cpus: 1.0
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; os.kill(1, 0)"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  frontend:
+    image: muslimllm-frontend:${MUSLIM_LLM_IMAGE_TAG}
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.production
+      args:
+        NEXT_PUBLIC_API_BASE: /api
+        NEXT_PUBLIC_API_BASE_URL: /api
+        NEXT_PUBLIC_ENABLE_CONTEXT_SYNC_LAB: ${ENABLE_CONTEXT_SYNC_LAB:-false}
+    container_name: muslimllm-frontend
+    environment:
+      APP_NAME: Muslim LLM
+      NODE_ENV: production
+      INTERNAL_API_BASE: http://backend:8000
+    ports:
+      - "3200:3000"
+    networks:
+      - muslimllm-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 1.0
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+networks:
+  muslimllm-network:
+    name: muslimllm-network
+    driver: bridge
+  muslimllm-fabric:
+    name: muslimllm-fabric
+    driver: bridge
+
+volumes:
+  muslimllm-postgres-data:
+    name: muslimllm-postgres-data
+  muslimllm-redis-data:
+    name: muslimllm-redis-data
+  muslimllm-documents:
+    name: muslimllm-documents
+  muslimllm-context-imports:
+    name: muslimllm-context-imports
+  muslimllm-models:
+    name: muslimllm-models
+  muslimllm-updates:
+    name: muslimllm-updates

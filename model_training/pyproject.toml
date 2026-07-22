@@ -1,0 +1,12 @@
+[project]
+name = "muslim-llm-training"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["torch>=2.2,<2.8", "numpy>=1.26,<2", "PyYAML>=6,<7", "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "sentencepiece>=0.2,<1"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

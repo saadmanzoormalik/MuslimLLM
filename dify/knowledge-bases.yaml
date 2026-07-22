@@ -1,0 +1,41 @@
+version: 2026.07-v1
+indexing:
+  mode: high_quality
+  retrieval: hybrid
+  reranking: required_when_available
+  long_document_chunking: hierarchical
+knowledge_bases:
+  - name: QURAN_VERIFIED
+    authoritative: true
+    stable: true
+    metadata: [source_type, surah, ayah, language, translator, edition, authority_tier, dataset_version]
+  - name: HADITH_VERIFIED
+    authoritative: true
+    stable: true
+    metadata: [collection, book, chapter, hadith_number, arabic_text, translation, grader, grading, edition, authority_tier, dataset_version]
+  - name: TAFSIR_AND_CLASSICAL_SCHOLARSHIP
+    authoritative: true
+    stable: true
+    metadata: [title, author, school, century, source_type, language, edition, authority_tier, dataset_version]
+  - name: FIQH_AND_USUL
+    authoritative: true
+    stable: true
+    metadata: [madhab, topic, ruling_type, scholar, text, jurisdiction, historical_period, authority_tier, dataset_version]
+  - name: ISLAMIC_HISTORY_AND_CIVILIZATION
+    authoritative: true
+    stable: true
+    metadata: [period, geography, source_type, primary_or_secondary, author, publication_date, authority_tier, dataset_version]
+  - name: MODERN_MUSLIM_WORLD
+    authoritative: true
+    stable: true
+    metadata: [geography, source_type, author, publication_date, authority_tier, dataset_version]
+  - name: GENERAL_SCIENCE_AND_ACADEMIC
+    authoritative: true
+    stable: true
+    metadata: [discipline, source_type, author, publication_date, doi_or_official_reference, authority_tier, dataset_version]
+  - name: LIVE_RESEARCH_CANDIDATES
+    authoritative: false
+    stable: false
+    quarantine: true
+    production_retrieval_allowed: false
+    metadata: [url, source_type, author, publication_date, copyright_status, provenance, authority_tier, dataset_version, governance_status]

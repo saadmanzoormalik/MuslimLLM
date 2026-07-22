@@ -1,0 +1,82 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+!.env.production.example
+!.env.testflight.example
+*.p8
+*.p12
+*.mobileprovision
+*.cer
+*.key
+
+# Dependencies and build outputs
+node_modules/
+.next/
+.next-dev/
+dist/
+build/
+DerivedData/
+Pods/
+*.xcarchive
+*.ipa
+*.dSYM.zip
+*.tsbuildinfo
+
+# Python and test caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local runtime state and user data
+.postgres-data/
+postgres_data/
+.context-sync-run/
+.context-sync-lab/
+data/uploads/
+data/context-imports/
+data/updates/
+*.pid
+*.log
+
+# Model artifacts
+model_training/outputs/
+model_training/checkpoints/
+model_training/runs/
+*.safetensors
+*.gguf
+*.pt
+*.pth
+
+# IDE and operating-system files
+.DS_Store
+.idea/
+.vscode/
+xcuserdata/
+
+# Unrelated workspace artifacts
+PathAGI_ProtaTech_Purchase_Order_*
+tmp/
+
+# Separate local Merit prototype (not part of Muslim LLM)
+/fixtures/
+/prisma/
+/public/
+/scripts/
+/src/
+/next-env.d.ts
+/next.config.mjs
+/package.json
+/package-lock.json
+/postcss.config.mjs
+/tailwind.config.ts
+/tsconfig.json
+
+# Generated test and load-test output
+work/*.json
+work/*.zip
+work/*.log

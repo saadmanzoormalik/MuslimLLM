@@ -1,0 +1,24 @@
+{
+  "projects": [
+    {
+      "id": "project-1",
+      "name": "Trade Routes",
+      "description": "Research on Muslim trade networks."
+    }
+  ],
+  "conversations": [
+    {
+      "id": "conv-1",
+      "title": "Indian Ocean trade",
+      "project_id": "project-1",
+      "updated_at": "2026-01-15T12:00:00Z",
+      "messages": [
+        {"role": "user", "content": "Map Muslim trade routes across the Indian Ocean."},
+        {"role": "assistant", "content": "Focus on ports, trust networks, law, and commodity flows."}
+      ]
+    }
+  ],
+  "memories": [
+    {"type": "domain_preference", "content": "User is interested in Muslim trade history.", "confidence_level": "medium"}
+  ]
+}

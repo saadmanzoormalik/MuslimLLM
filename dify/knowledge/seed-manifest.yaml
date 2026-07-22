@@ -1,0 +1,86 @@
+version: 2026.07-v1
+documents:
+  - file: quran_5_8_reference.md
+    knowledge_base: QURAN_VERIFIED
+    metadata:
+      source_type: Quran
+      surah: "5"
+      ayah: "8"
+      language: Arabic/English
+      translator: Original summary; not a translation
+      edition: Tanzil Quran Text 1.1 reference card
+      authority_tier: "3"
+      dataset_version: 2026.07-v1
+  - file: hadith_china_authenticity_record.md
+    knowledge_base: HADITH_VERIFIED
+    metadata:
+      collection: Attribution record
+      book: Knowledge
+      chapter: Seeking knowledge
+      hadith_number: Unverified wording
+      arabic_text: Not stored
+      translation: Not quoted
+      grader: Requires specialist verification
+      grading: Not established by this record
+      edition: Governance reference card
+      authority_tier: "2"
+      dataset_version: 2026.07-v1
+  - file: classical_scholarship_governance.md
+    knowledge_base: TAFSIR_AND_CLASSICAL_SCHOLARSHIP
+    metadata:
+      title: Classical scholarship governance record
+      author: Muslim Knowledge Fabric
+      school: General
+      century: Modern governance record
+      source_type: Source registry
+      language: English
+      edition: 2026.07-v1
+      authority_tier: "1"
+      dataset_version: 2026.07-v1
+  - file: traveler_prayer_comparison.md
+    knowledge_base: FIQH_AND_USUL
+    metadata:
+      madhab: Comparative
+      topic: Traveler prayer
+      ruling_type: Educational overview
+      scholar: Not a fatwa
+      text: Comparative source record
+      jurisdiction: General
+      historical_period: Classical to modern
+      authority_tier: "2"
+      dataset_version: 2026.07-v1
+  - file: ottoman_governance_history.md
+    knowledge_base: ISLAMIC_HISTORY_AND_CIVILIZATION
+    metadata:
+      period: Ottoman
+      geography: Ottoman domains
+      source_type: Historiographical overview
+      primary_or_secondary: Secondary synthesis
+      author: Muslim Knowledge Fabric
+      publication_date: 2026-07-18
+      authority_tier: "2"
+      dataset_version: 2026.07-v1
+  - file: modern_muslim_world_governance.md
+    knowledge_base: MODERN_MUSLIM_WORLD
+    metadata:
+      geography: Global
+      source_type: Source registry
+      author: Muslim Knowledge Fabric
+      publication_date: 2026-07-18
+      authority_tier: "1"
+      dataset_version: 2026.07-v1
+  - file: nasa_photosynthesis_reference.md
+    knowledge_base: GENERAL_SCIENCE_AND_ACADEMIC
+    metadata:
+      discipline: Biology
+      source_type: Government scientific source
+      author: NASA
+      publication_date: 2024-01-26
+      doi_or_official_reference: https://www.nasa.gov/stem-content/stemonstrations-photosynthesis/
+      authority_tier: "3"
+      dataset_version: 2026.07-v1
+
+quarantine:
+  knowledge_base: LIVE_RESEARCH_CANDIDATES
+  production_retrieval_allowed: false
+  seed_documents: []

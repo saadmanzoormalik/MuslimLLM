@@ -1,0 +1,16 @@
+model:
+  vocabulary_size: 512
+  hidden_size: 64
+  intermediate_size: 160
+  num_layers: 2
+  num_attention_heads: 4
+  num_key_value_heads: 2
+  max_position_embeddings: 128
+  moe_enabled: true
+  moe_layer_frequency: 1
+  num_routed_experts: 4
+  num_shared_experts: 1
+  experts_per_token: 2
+  expert_intermediate_size: 64
+  expert_capacity_factor: 2.0
+

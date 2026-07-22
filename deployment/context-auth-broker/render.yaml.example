@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: muslim-llm-context-auth
+    runtime: docker
+    dockerfilePath: ./deployment/context-auth-broker/Dockerfile
+    healthCheckPath: /v1/health
+    envVars:
+      - key: AUTH_BROKER_ENVIRONMENT
+        value: production
+      - key: CONTEXT_SYNC_ALLOW_MOCK_PROVIDER
+        value: "false"
+      - key: CONTEXT_SYNC_ALLOW_LOCALHOST_CALLBACKS
+        value: "false"
+      - key: AUTH_BROKER_DATABASE_URL
+        sync: false
+      - key: AUTH_BROKER_ENCRYPTION_KEY
+        sync: false
+      - key: AUTH_BROKER_ALLOWED_REDIRECT_URIS
+        sync: false

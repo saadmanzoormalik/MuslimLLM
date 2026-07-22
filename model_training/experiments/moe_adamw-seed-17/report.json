@@ -1,0 +1,584 @@
+{
+  "metadata": {
+    "run_id": "36116651-4cd5-460a-8a2b-872103fe5839",
+    "code_commit": "unversioned-workspace",
+    "config": "/Users/saadmanzoor/Documents/Codex/2026-06-29/you-are-my-enterprise-ai-systems/model_training/configs/model/unit_moe.yaml",
+    "config_sha256": "d247bdeda8f8648f851cef0c528b964d9bb4557c068436d512c075ff41d81f77",
+    "dataset_version": "synthetic-stage0-v1",
+    "curriculum_version": "random-baseline-v1",
+    "tokenizer_version": "byte-v1",
+    "optimizer": "adamw",
+    "seed": 17,
+    "hardware": "macOS-26.5.1-x86_64-i386-64bit",
+    "torch_version": "2.2.2",
+    "precision": "float32",
+    "world_size": 1,
+    "estimated_cost_usd": 0.0
+  },
+  "parameter_counts": {
+    "total": 205632,
+    "activated_estimate": 131904
+  },
+  "steps": 12,
+  "tokens": 768,
+  "elapsed_seconds": 0.1970662829990033,
+  "tokens_per_second": 3897.1659094208635,
+  "initial_loss": 6.306704044342041,
+  "final_loss": 6.165108680725098,
+  "metrics": [
+    {
+      "step": 1,
+      "loss": 6.306704044342041,
+      "auxiliary_loss": 0.024113502353429794,
+      "gradient_norm": 1.6226401329040527,
+      "routing": [
+        {
+          "expert_utilization_variance": 9.0,
+          "expert_entropy": 0.9969086050987244,
+          "router_confidence": 0.286697119474411,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.2890625,
+          "tokens_per_expert": [
+            29.0,
+            31.0,
+            37.0,
+            31.0
+          ],
+          "load_balance_loss": 1.0029947757720947,
+          "router_z_loss": 1.9640250205993652,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 172.5,
+          "expert_entropy": 0.9443311095237732,
+          "router_confidence": 0.29584169387817383,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.421875,
+          "tokens_per_expert": [
+            23.0,
+            54.0,
+            21.0,
+            30.0
+          ],
+          "load_balance_loss": 1.0251091718673706,
+          "router_z_loss": 1.8684368133544922,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "loss": 6.262951374053955,
+      "auxiliary_loss": 0.0238226056098938,
+      "gradient_norm": 1.7060282230377197,
+      "routing": [
+        {
+          "expert_utilization_variance": 17.5,
+          "expert_entropy": 0.994049072265625,
+          "router_confidence": 0.28797647356987,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.3046875,
+          "tokens_per_expert": [
+            39.0,
+            30.0,
+            31.0,
+            28.0
+          ],
+          "load_balance_loss": 1.002990484237671,
+          "router_z_loss": 1.9337751865386963,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 13.5,
+          "expert_entropy": 0.9951918721199036,
+          "router_confidence": 0.2947791814804077,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.28125,
+          "tokens_per_expert": [
+            35.0,
+            27.0,
+            30.0,
+            36.0
+          ],
+          "load_balance_loss": 1.0034818649291992,
+          "router_z_loss": 1.8241074085235596,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "loss": 6.281028747558594,
+      "auxiliary_loss": 0.02451539784669876,
+      "gradient_norm": 1.726968765258789,
+      "routing": [
+        {
+          "expert_utilization_variance": 28.5,
+          "expert_entropy": 0.9893000721931458,
+          "router_confidence": 0.2913160026073456,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.2890625,
+          "tokens_per_expert": [
+            34.0,
+            37.0,
+            23.0,
+            34.0
+          ],
+          "load_balance_loss": 1.0070934295654297,
+          "router_z_loss": 1.9886833429336548,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 135.5,
+          "expert_entropy": 0.9506057500839233,
+          "router_confidence": 0.29935410618782043,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.34375,
+          "tokens_per_expert": [
+            23.0,
+            44.0,
+            43.0,
+            18.0
+          ],
+          "load_balance_loss": 1.0371586084365845,
+          "router_z_loss": 2.0841948986053467,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "loss": 6.260383605957031,
+      "auxiliary_loss": 0.02415134385228157,
+      "gradient_norm": 1.7799830436706543,
+      "routing": [
+        {
+          "expert_utilization_variance": 39.5,
+          "expert_entropy": 0.9861174821853638,
+          "router_confidence": 0.2864941954612732,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.3203125,
+          "tokens_per_expert": [
+            29.0,
+            24.0,
+            41.0,
+            34.0
+          ],
+          "load_balance_loss": 1.0087062120437622,
+          "router_z_loss": 1.929825782775879,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 128.5,
+          "expert_entropy": 0.9465333223342896,
+          "router_confidence": 0.29642948508262634,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.328125,
+          "tokens_per_expert": [
+            13.0,
+            42.0,
+            39.0,
+            34.0
+          ],
+          "load_balance_loss": 1.0253163576126099,
+          "router_z_loss": 1.8812921047210693,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "loss": 6.23258113861084,
+      "auxiliary_loss": 0.024124953895807266,
+      "gradient_norm": 1.7882767915725708,
+      "routing": [
+        {
+          "expert_utilization_variance": 7.5,
+          "expert_entropy": 0.9973808526992798,
+          "router_confidence": 0.2926110029220581,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.28125,
+          "tokens_per_expert": [
+            36.0,
+            33.0,
+            29.0,
+            30.0
+          ],
+          "load_balance_loss": 1.0004572868347168,
+          "router_z_loss": 1.9972319602966309,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 78.5,
+          "expert_entropy": 0.97113037109375,
+          "router_confidence": 0.295094758272171,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.34375,
+          "tokens_per_expert": [
+            44.0,
+            33.0,
+            19.0,
+            32.0
+          ],
+          "load_balance_loss": 1.0113186836242676,
+          "router_z_loss": 2.009962797164917,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "loss": 6.242125034332275,
+      "auxiliary_loss": 0.024472836405038834,
+      "gradient_norm": 1.7399656772613525,
+      "routing": [
+        {
+          "expert_utilization_variance": 30.5,
+          "expert_entropy": 0.989201545715332,
+          "router_confidence": 0.29031190276145935,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.296875,
+          "tokens_per_expert": [
+            37.0,
+            38.0,
+            26.0,
+            27.0
+          ],
+          "load_balance_loss": 1.006842851638794,
+          "router_z_loss": 1.945034384727478,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 126.0,
+          "expert_entropy": 0.952691376209259,
+          "router_confidence": 0.3008706271648407,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.359375,
+          "tokens_per_expert": [
+            28.0,
+            16.0,
+            46.0,
+            38.0
+          ],
+          "load_balance_loss": 1.0448150634765625,
+          "router_z_loss": 2.011223316192627,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "loss": 6.259377479553223,
+      "auxiliary_loss": 0.02402626723051071,
+      "gradient_norm": 1.7342840433120728,
+      "routing": [
+        {
+          "expert_utilization_variance": 18.5,
+          "expert_entropy": 0.9935218691825867,
+          "router_confidence": 0.2922564148902893,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.296875,
+          "tokens_per_expert": [
+            34.0,
+            29.0,
+            27.0,
+            38.0
+          ],
+          "load_balance_loss": 1.0057592391967773,
+          "router_z_loss": 1.9478217363357544,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 7.5,
+          "expert_entropy": 0.9973809719085693,
+          "router_confidence": 0.2886787950992584,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.28125,
+          "tokens_per_expert": [
+            36.0,
+            29.0,
+            30.0,
+            33.0
+          ],
+          "load_balance_loss": 1.0015419721603394,
+          "router_z_loss": 2.005434513092041,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 8,
+      "loss": 6.232280731201172,
+      "auxiliary_loss": 0.024146415293216705,
+      "gradient_norm": 1.8093862533569336,
+      "routing": [
+        {
+          "expert_utilization_variance": 20.5,
+          "expert_entropy": 0.9925348162651062,
+          "router_confidence": 0.2932807505130768,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.28125,
+          "tokens_per_expert": [
+            25.0,
+            36.0,
+            36.0,
+            31.0
+          ],
+          "load_balance_loss": 1.006605863571167,
+          "router_z_loss": 1.925889015197754,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 46.5,
+          "expert_entropy": 0.9831212759017944,
+          "router_confidence": 0.2873741388320923,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.3203125,
+          "tokens_per_expert": [
+            22.0,
+            31.0,
+            41.0,
+            34.0
+          ],
+          "load_balance_loss": 1.0137696266174316,
+          "router_z_loss": 2.016770362854004,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "loss": 6.139535427093506,
+      "auxiliary_loss": 0.02453593537211418,
+      "gradient_norm": 1.5934350490570068,
+      "routing": [
+        {
+          "expert_utilization_variance": 103.5,
+          "expert_entropy": 0.961155116558075,
+          "router_confidence": 0.2894464433193207,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.3515625,
+          "tokens_per_expert": [
+            17.0,
+            30.0,
+            45.0,
+            36.0
+          ],
+          "load_balance_loss": 1.012282133102417,
+          "router_z_loss": 1.915274739265442,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 234.5,
+          "expert_entropy": 0.9043863415718079,
+          "router_confidence": 0.30262649059295654,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.40625,
+          "tokens_per_expert": [
+            9.0,
+            35.0,
+            52.0,
+            32.0
+          ],
+          "load_balance_loss": 1.054047703742981,
+          "router_z_loss": 1.957362413406372,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 10,
+      "loss": 6.207387447357178,
+      "auxiliary_loss": 0.024252310395240784,
+      "gradient_norm": 1.6468783617019653,
+      "routing": [
+        {
+          "expert_utilization_variance": 127.5,
+          "expert_entropy": 0.9488688707351685,
+          "router_confidence": 0.28740742802619934,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.3359375,
+          "tokens_per_expert": [
+            31.0,
+            43.0,
+            14.0,
+            40.0
+          ],
+          "load_balance_loss": 1.023244023323059,
+          "router_z_loss": 1.9881447553634644,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 48.5,
+          "expert_entropy": 0.9818723201751709,
+          "router_confidence": 0.29157498478889465,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.3125,
+          "tokens_per_expert": [
+            32.0,
+            21.0,
+            40.0,
+            35.0
+          ],
+          "load_balance_loss": 1.005443811416626,
+          "router_z_loss": 1.977286696434021,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 11,
+      "loss": 6.191786289215088,
+      "auxiliary_loss": 0.024258535355329514,
+      "gradient_norm": 1.7636830806732178,
+      "routing": [
+        {
+          "expert_utilization_variance": 7.5,
+          "expert_entropy": 0.9973254799842834,
+          "router_confidence": 0.29476848244667053,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.2734375,
+          "tokens_per_expert": [
+            31.0,
+            34.0,
+            28.0,
+            35.0
+          ],
+          "load_balance_loss": 1.0069379806518555,
+          "router_z_loss": 1.9880661964416504,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 84.5,
+          "expert_entropy": 0.9718703627586365,
+          "router_confidence": 0.2891990840435028,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.3671875,
+          "tokens_per_expert": [
+            25.0,
+            47.0,
+            24.0,
+            32.0
+          ],
+          "load_balance_loss": 1.0330848693847656,
+          "router_z_loss": 1.870240569114685,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "step": 12,
+      "loss": 6.165108680725098,
+      "auxiliary_loss": 0.02422727644443512,
+      "gradient_norm": 1.6638191938400269,
+      "routing": [
+        {
+          "expert_utilization_variance": 86.5,
+          "expert_entropy": 0.9700069427490234,
+          "router_confidence": 0.29152101278305054,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.359375,
+          "tokens_per_expert": [
+            46.0,
+            27.0,
+            34.0,
+            21.0
+          ],
+          "load_balance_loss": 1.0199427604675293,
+          "router_z_loss": 1.977084755897522,
+          "shared_expert_contribution": 0.0
+        },
+        {
+          "expert_utilization_variance": 49.5,
+          "expert_entropy": 0.9819693565368652,
+          "router_confidence": 0.29366374015808105,
+          "dropped_token_rate": 0.0,
+          "overflow_rate": 0.0,
+          "dead_expert_count": 0.0,
+          "dominant_expert_share": 0.3125,
+          "tokens_per_expert": [
+            37.0,
+            29.0,
+            40.0,
+            22.0
+          ],
+          "load_balance_loss": 1.0099360942840576,
+          "router_z_loss": 1.9514037370681763,
+          "shared_expert_contribution": 0.0
+        }
+      ]
+    }
+  ],
+  "optimizer_diagnostics": {
+    "muon_parameter_count": 0,
+    "adamw_parameter_count": 32,
+    "muon_update_norm_mean": 0.0,
+    "nan_inf_events": 0
+  },
+  "checkpoint": {
+    "sha256": "74cfbf5e12c4ea17196ab111a9ded8a6de005c8eda0ea65b5ab7066a09c66c1c",
+    "step": 12,
+    "metadata": {
+      "run_id": "36116651-4cd5-460a-8a2b-872103fe5839",
+      "code_commit": "unversioned-workspace",
+      "config": "/Users/saadmanzoor/Documents/Codex/2026-06-29/you-are-my-enterprise-ai-systems/model_training/configs/model/unit_moe.yaml",
+      "config_sha256": "d247bdeda8f8648f851cef0c528b964d9bb4557c068436d512c075ff41d81f77",
+      "dataset_version": "synthetic-stage0-v1",
+      "curriculum_version": "random-baseline-v1",
+      "tokenizer_version": "byte-v1",
+      "optimizer": "adamw",
+      "seed": 17,
+      "hardware": "macOS-26.5.1-x86_64-i386-64bit",
+      "torch_version": "2.2.2",
+      "precision": "float32",
+      "world_size": 1,
+      "estimated_cost_usd": 0.0
+    }
+  }
+}

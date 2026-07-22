@@ -1,0 +1,85 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: muslim_llm
+      POSTGRES_PASSWORD: muslim_llm
+      POSTGRES_DB: muslim_llm
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/001_init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U muslim_llm -d muslim_llm"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql://muslim_llm:muslim_llm@db:5432/muslim_llm
+      LLM_API_BASE: ${LLM_API_BASE:-http://ollama:11434/v1}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-qwen2.5:1.5b}
+      OPEN_SOURCE_LLM_FALLBACK: ${OPEN_SOURCE_LLM_FALLBACK:-true}
+      LLM_MAX_TOKENS: ${LLM_MAX_TOKENS:-700}
+      EMBEDDING_API_BASE: ${EMBEDDING_API_BASE:-}
+      EMBEDDING_API_KEY: ${EMBEDDING_API_KEY:-}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-text-embedding-3-small}
+      APP_NAME: Muslim LLM
+      AUTH_ENABLED: ${AUTH_ENABLED:-true}
+      AUTH_ALLOW_GUEST: ${AUTH_ALLOW_GUEST:-true}
+      AUTH_ALLOW_EMAIL: ${AUTH_ALLOW_EMAIL:-true}
+      AUTH_ALLOW_GOOGLE: ${AUTH_ALLOW_GOOGLE:-true}
+      AUTH_ALLOW_APPLE: ${AUTH_ALLOW_APPLE:-true}
+      AUTH_SECRET_KEY: ${AUTH_SECRET_KEY:-local-development-auth-key-change-before-production}
+      AUTH_EMAIL_PROVIDER: ${AUTH_EMAIL_PROVIDER:-local}
+      AUTH_EMAIL_FROM: ${AUTH_EMAIL_FROM:-signin@example.com}
+      AUTH_ACCESS_TOKEN_MINUTES: ${AUTH_ACCESS_TOKEN_MINUTES:-15}
+      AUTH_REFRESH_TOKEN_DAYS: ${AUTH_REFRESH_TOKEN_DAYS:-30}
+      AUTH_SECURE_COOKIES: ${AUTH_SECURE_COOKIES:-false}
+      AUTH_ALLOWED_ORIGINS: ${AUTH_ALLOWED_ORIGINS:-http://127.0.0.1:3000,http://localhost:3000}
+      FRONTEND_URL: ${AUTH_PUBLIC_URL:-http://127.0.0.1:3000}
+      GOOGLE_OAUTH_CLIENT_ID: ${GOOGLE_OAUTH_CLIENT_ID:-}
+      GOOGLE_OAUTH_CLIENT_SECRET: ${GOOGLE_OAUTH_CLIENT_SECRET:-}
+      GOOGLE_OAUTH_REDIRECT_URI: ${GOOGLE_OAUTH_REDIRECT_URI:-http://127.0.0.1:8000/auth/google/callback}
+      APPLE_CLIENT_ID: ${APPLE_CLIENT_ID:-}
+      APPLE_TEAM_ID: ${APPLE_TEAM_ID:-}
+      APPLE_KEY_ID: ${APPLE_KEY_ID:-}
+      APPLE_PRIVATE_KEY_PATH: ${APPLE_PRIVATE_KEY_PATH:-}
+      APPLE_REDIRECT_URI: ${APPLE_REDIRECT_URI:-http://127.0.0.1:8000/auth/apple/callback}
+      CONTEXT_SYNC_TOKEN_KEY: ${CONTEXT_SYNC_TOKEN_KEY:-local-dev-context-sync-key}
+      CONTEXT_SYNC_CALLBACK_BASE: ${CONTEXT_SYNC_CALLBACK_BASE:-http://127.0.0.1:8000}
+      CONTEXT_SYNC_ALLOWED_RETURN_ORIGINS: ${CONTEXT_SYNC_ALLOWED_RETURN_ORIGINS:-http://127.0.0.1:3000,http://localhost:3000}
+    volumes:
+      - ./data:/app/data
+      - ./muslim_llm_system_prompt.md:/app/muslim_llm_system_prompt.md:ro
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    environment:
+      NEXT_PUBLIC_API_BASE: http://localhost:8000
+      APP_NAME: Muslim LLM
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["local-llm"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  postgres_data:
+  ollama_data:

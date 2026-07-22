@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function PrivacyPage() { return <main className="mx-auto min-h-dvh max-w-2xl px-5 py-14"><Link className="text-sm text-muted-foreground" href="/auth">Back</Link><h1 className="display-type mt-8 text-4xl font-semibold">Privacy</h1><p className="mt-5 leading-7 text-muted-foreground">Muslim LLM keeps authentication tokens in secure browser cookies, not browser storage. Local processing stays on this device. Hosted services are used only when selected and configured.</p></main>; }

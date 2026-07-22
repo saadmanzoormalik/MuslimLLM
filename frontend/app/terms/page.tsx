@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function TermsPage() { return <main className="mx-auto min-h-dvh max-w-2xl px-5 py-14"><Link className="text-sm text-muted-foreground" href="/auth">Back</Link><h1 className="display-type mt-8 text-4xl font-semibold">Terms</h1><p className="mt-5 leading-7 text-muted-foreground">Muslim LLM is an AI assistant, not a substitute for qualified legal, medical, financial, or religious professionals. Verify consequential decisions and cited sources.</p></main>; }

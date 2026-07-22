@@ -1,0 +1,13 @@
+workflows:
+  QUERY POLICY CLASSIFIER: classify_query_policy
+  GOVERNED RETRIEVAL: retrieve_governed_evidence
+  LIVE RESEARCH: perform_live_research
+  ISLAMIC SOURCE VERIFIER: verify_islamic_sources
+  FIQH AND MADHAB REVIEWER: review_fiqh_madhab
+  SCIENTIFIC ACCURACY REVIEWER: review_scientific_accuracy
+  HISTORICAL AND GEOPOLITICAL REVIEWER: review_history_geopolitics
+  ISLAMIC VALUES ALIGNMENT REVIEWER: review_islamic_values
+  CITATION AND HALLUCINATION VERIFIER: verify_claims_and_citations
+  FINAL ANSWER COMPOSER: compose_verified_answer
+  DATASET CANDIDATE INGESTION: ingest_dataset_candidate
+  DATASET GOVERNANCE REVIEW: review_dataset_candidate

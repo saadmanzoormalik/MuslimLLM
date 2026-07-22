@@ -1,0 +1,25 @@
+services:
+  broker-db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: context_broker
+      POSTGRES_PASSWORD: ${AUTH_BROKER_DB_PASSWORD}
+      POSTGRES_DB: context_broker
+    volumes:
+      - broker_db:/var/lib/postgresql/data
+  broker:
+    build:
+      context: ../..
+      dockerfile: deployment/context-auth-broker/Dockerfile
+    environment:
+      AUTH_BROKER_PUBLIC_URL: ${AUTH_BROKER_PUBLIC_URL}
+      AUTH_BROKER_DATABASE_URL: postgresql://context_broker:${AUTH_BROKER_DB_PASSWORD}@broker-db:5432/context_broker
+      AUTH_BROKER_ENCRYPTION_KEY: ${AUTH_BROKER_ENCRYPTION_KEY}
+      AUTH_BROKER_ALLOWED_REDIRECT_URIS: ${AUTH_BROKER_ALLOWED_REDIRECT_URIS}
+      AUTH_BROKER_ENVIRONMENT: production
+      CONTEXT_SYNC_ALLOW_LOCALHOST_CALLBACKS: "false"
+      CONTEXT_SYNC_ALLOW_MOCK_PROVIDER: "false"
+    depends_on: [broker-db]
+    ports: ["8100:8100"]
+volumes:
+  broker_db:

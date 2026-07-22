@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "run_id": "25e878d1-77a0-4b16-890f-e997b5a04a8d",
+    "code_commit": "unversioned-workspace",
+    "config": "/Users/saadmanzoor/Documents/Codex/2026-06-29/you-are-my-enterprise-ai-systems/model_training/configs/model/unit_dense.yaml",
+    "config_sha256": "992d0c94957a14e64f7d34bac0c3378aa9e239a816d9d780013bc871b46eed88",
+    "dataset_version": "synthetic-stage0-v1",
+    "curriculum_version": "random-baseline-v1",
+    "tokenizer_version": "byte-v1",
+    "optimizer": "adamw",
+    "seed": 43,
+    "hardware": "macOS-26.5.1-x86_64-i386-64bit",
+    "torch_version": "2.2.2",
+    "precision": "float32",
+    "world_size": 1,
+    "estimated_cost_usd": 0.0
+  },
+  "parameter_counts": {
+    "total": 119104,
+    "activated_estimate": 119104
+  },
+  "steps": 12,
+  "tokens": 768,
+  "elapsed_seconds": 0.1694184640000458,
+  "tokens_per_second": 4533.154072272739,
+  "initial_loss": 6.221985340118408,
+  "final_loss": 6.173402786254883,
+  "metrics": [
+    {
+      "step": 1,
+      "loss": 6.221985340118408,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 2.412614107131958,
+      "routing": []
+    },
+    {
+      "step": 2,
+      "loss": 6.248279094696045,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.7595863342285156,
+      "routing": []
+    },
+    {
+      "step": 3,
+      "loss": 6.285884857177734,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.6676061153411865,
+      "routing": []
+    },
+    {
+      "step": 4,
+      "loss": 6.167907238006592,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.7890723943710327,
+      "routing": []
+    },
+    {
+      "step": 5,
+      "loss": 6.232822895050049,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.870728850364685,
+      "routing": []
+    },
+    {
+      "step": 6,
+      "loss": 6.267950534820557,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.7620704174041748,
+      "routing": []
+    },
+    {
+      "step": 7,
+      "loss": 6.260373592376709,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.7571766376495361,
+      "routing": []
+    },
+    {
+      "step": 8,
+      "loss": 6.099080562591553,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.7503628730773926,
+      "routing": []
+    },
+    {
+      "step": 9,
+      "loss": 6.215054035186768,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.8337745666503906,
+      "routing": []
+    },
+    {
+      "step": 10,
+      "loss": 6.2501091957092285,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.8378477096557617,
+      "routing": []
+    },
+    {
+      "step": 11,
+      "loss": 6.223833084106445,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.7173019647598267,
+      "routing": []
+    },
+    {
+      "step": 12,
+      "loss": 6.173402786254883,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.6921319961547852,
+      "routing": []
+    }
+  ],
+  "optimizer_diagnostics": {
+    "muon_parameter_count": 0,
+    "adamw_parameter_count": 18,
+    "muon_update_norm_mean": 0.0,
+    "nan_inf_events": 0
+  },
+  "checkpoint": {
+    "sha256": "c331ea99c72ab314dfe4b77852b7e47f62f34803c8a724bf51e8f133a8468dfc",
+    "step": 12,
+    "metadata": {
+      "run_id": "25e878d1-77a0-4b16-890f-e997b5a04a8d",
+      "code_commit": "unversioned-workspace",
+      "config": "/Users/saadmanzoor/Documents/Codex/2026-06-29/you-are-my-enterprise-ai-systems/model_training/configs/model/unit_dense.yaml",
+      "config_sha256": "992d0c94957a14e64f7d34bac0c3378aa9e239a816d9d780013bc871b46eed88",
+      "dataset_version": "synthetic-stage0-v1",
+      "curriculum_version": "random-baseline-v1",
+      "tokenizer_version": "byte-v1",
+      "optimizer": "adamw",
+      "seed": 43,
+      "hardware": "macOS-26.5.1-x86_64-i386-64bit",
+      "torch_version": "2.2.2",
+      "precision": "float32",
+      "world_size": 1,
+      "estimated_cost_usd": 0.0
+    }
+  }
+}

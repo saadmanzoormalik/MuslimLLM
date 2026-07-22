@@ -1,0 +1,16 @@
+app = "muslim-llm-context-auth"
+primary_region = "sjc"
+
+[build]
+  dockerfile = "deployment/context-auth-broker/Dockerfile"
+
+[http_service]
+  internal_port = 8100
+  force_https = true
+  auto_start_machines = true
+  auto_stop_machines = "stop"
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1

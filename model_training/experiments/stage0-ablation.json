@@ -1,0 +1,77 @@
+{
+  "dense_adamw": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "mean_loss_reduction": 0.07816600799560547,
+    "loss_reduction_stdev": 0.03216913200340044,
+    "mean_tokens_per_second": 5216.349747059307,
+    "throughput_stdev": 1951.2767883199388,
+    "parameter_counts": {
+      "total": 119104,
+      "activated_estimate": 119104
+    }
+  },
+  "dense_hybrid": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "mean_loss_reduction": 0.22363503774007162,
+    "loss_reduction_stdev": 0.07007317790530943,
+    "mean_tokens_per_second": 4812.239767400872,
+    "throughput_stdev": 541.3694828109504,
+    "parameter_counts": {
+      "total": 119104,
+      "activated_estimate": 119104
+    }
+  },
+  "moe_adamw": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "mean_loss_reduction": 0.08117739359537761,
+    "loss_reduction_stdev": 0.06860966350423041,
+    "mean_tokens_per_second": 4393.348949855563,
+    "throughput_stdev": 438.2910713483464,
+    "parameter_counts": {
+      "total": 205632,
+      "activated_estimate": 131904
+    }
+  },
+  "moe_hybrid": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "mean_loss_reduction": 0.21086692810058594,
+    "loss_reduction_stdev": 0.1358881791970692,
+    "mean_tokens_per_second": 2631.095214039518,
+    "throughput_stdev": 131.76539402772914,
+    "parameter_counts": {
+      "total": 205632,
+      "activated_estimate": 131904
+    }
+  },
+  "shared_moe_hybrid": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "mean_loss_reduction": 0.2036897341410319,
+    "loss_reduction_stdev": 0.11935847769218977,
+    "mean_tokens_per_second": 2567.1518703870215,
+    "throughput_stdev": 62.195804011012825,
+    "parameter_counts": {
+      "total": 181056,
+      "activated_estimate": 131904
+    }
+  }
+}

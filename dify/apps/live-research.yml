@@ -1,0 +1,179 @@
+app:
+  description: Accepts only approved, metadata-complete live search results and routes them to quarantine.
+  icon: 🧭
+  icon_background: '#E8F1EC'
+  mode: workflow
+  name: LIVE RESEARCH
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      enabled: false
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: start-source-control-target
+      source: start
+      sourceHandle: source
+      target: control
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: control-source-end-target
+      source: control
+      sourceHandle: source
+      target: end
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: Query
+          max_length: 24000
+          options: []
+          required: true
+          type: paragraph
+          variable: query
+        - label: Current Information Allowed
+          max_length: null
+          options:
+          - 'true'
+          - 'false'
+          required: true
+          type: select
+          variable: current_information_allowed
+          default: 'true'
+        - label: Approved Results Json
+          max_length: 24000
+          options: []
+          required: false
+          type: paragraph
+          variable: approved_results_json
+      height: 90
+      id: start
+      position:
+        x: 30
+        y: 260
+      positionAbsolute:
+        x: 30
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        title: LIVE RESEARCH
+        type: code
+        code_language: python3
+        code: "import json\n\ndef main(query: str, current_information_allowed: str = \"true\", approved_results_json: str\
+          \ = \"[]\") -> dict:\n    if current_information_allowed.lower() != \"true\":\n        pack = {\"status\": \"not_permitted\"\
+          , \"sources\": [], \"candidate_ingestion\": []}\n    else:\n        sources = json.loads(approved_results_json or\
+          \ \"[]\")\n        safe = [s for s in sources if s.get(\"url\") and s.get(\"title\") and s.get(\"publication_date\"\
+          ) and s.get(\"source_type\")]\n        pack = {\"status\": \"completed\" if safe else \"insufficient_approved_search_evidence\"\
+          , \"sources\": safe, \"candidate_ingestion\": safe}\n    return {\"live_evidence_json\": json.dumps(pack, ensure_ascii=False),\
+          \ \"status\": pack[\"status\"]}\n"
+        variables:
+        - variable: query
+          value_selector:
+          - start
+          - query
+          value_type: string
+        - variable: current_information_allowed
+          value_selector:
+          - start
+          - current_information_allowed
+          value_type: string
+        - variable: approved_results_json
+          value_selector:
+          - start
+          - approved_results_json
+          value_type: string
+        outputs:
+          live_evidence_json:
+            children: null
+            type: string
+          status:
+            children: null
+            type: string
+      height: 90
+      id: control
+      position:
+        x: 350
+        y: 260
+      positionAbsolute:
+        x: 350
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        title: End
+        type: end
+        outputs:
+        - variable: live_evidence_json
+          value_selector:
+          - control
+          - live_evidence_json
+          value_type: string
+        - variable: status
+          value_selector:
+          - control
+          - status
+          value_type: string
+      height: 90
+      id: end
+      position:
+        x: 680
+        y: 260
+      positionAbsolute:
+        x: 680
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 0
+      y: 0
+      zoom: 0.62

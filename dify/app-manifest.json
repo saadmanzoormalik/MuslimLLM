@@ -1,0 +1,72 @@
+{
+  "dsl_version": "0.7.0",
+  "dify_target": "1.16.0",
+  "model_plugin": "langgenius/ollama:1.0.0@ae50a2db261bffa7289677f2b0a60e60762ceb187b602113b72425ccbe772dc3",
+  "applications": [
+    {
+      "file": "query-policy-classifier.yml",
+      "name": "QUERY POLICY CLASSIFIER",
+      "mode": "workflow"
+    },
+    {
+      "file": "governed-retrieval.yml",
+      "name": "GOVERNED RETRIEVAL",
+      "mode": "workflow"
+    },
+    {
+      "file": "live-research.yml",
+      "name": "LIVE RESEARCH",
+      "mode": "workflow"
+    },
+    {
+      "file": "islamic-source-verifier.yml",
+      "name": "ISLAMIC SOURCE VERIFIER",
+      "mode": "workflow"
+    },
+    {
+      "file": "fiqh-and-madhab-reviewer.yml",
+      "name": "FIQH AND MADHAB REVIEWER",
+      "mode": "workflow"
+    },
+    {
+      "file": "scientific-accuracy-reviewer.yml",
+      "name": "SCIENTIFIC ACCURACY REVIEWER",
+      "mode": "workflow"
+    },
+    {
+      "file": "historical-geopolitical-reviewer.yml",
+      "name": "HISTORICAL AND GEOPOLITICAL REVIEWER",
+      "mode": "workflow"
+    },
+    {
+      "file": "islamic-values-alignment-reviewer.yml",
+      "name": "ISLAMIC VALUES ALIGNMENT REVIEWER",
+      "mode": "workflow"
+    },
+    {
+      "file": "citation-hallucination-verifier.yml",
+      "name": "CITATION AND HALLUCINATION VERIFIER",
+      "mode": "workflow"
+    },
+    {
+      "file": "final-answer-composer.yml",
+      "name": "FINAL ANSWER COMPOSER",
+      "mode": "workflow"
+    },
+    {
+      "file": "dataset-candidate-ingestion.yml",
+      "name": "DATASET CANDIDATE INGESTION",
+      "mode": "workflow"
+    },
+    {
+      "file": "dataset-governance-review.yml",
+      "name": "DATASET GOVERNANCE REVIEW",
+      "mode": "workflow"
+    },
+    {
+      "file": "muslim-knowledge-fabric.yml",
+      "name": "MUSLIM KNOWLEDGE FABRIC",
+      "mode": "advanced-chat"
+    }
+  ]
+}

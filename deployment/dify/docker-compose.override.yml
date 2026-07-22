@@ -1,0 +1,62 @@
+services:
+  api:
+    networks:
+      - default
+      - ssrf_proxy_network
+      - muslimllm-fabric
+    mem_limit: 1152m
+
+  worker:
+    environment:
+      MIGRATION_ENABLED: "false"
+    networks:
+      - default
+      - ssrf_proxy_network
+      - muslimllm-fabric
+    mem_limit: 1152m
+
+  worker_beat:
+    environment:
+      MIGRATION_ENABLED: "false"
+    mem_limit: 512m
+
+  web:
+    mem_limit: 384m
+
+  db_postgres:
+    mem_limit: 768m
+
+  redis:
+    mem_limit: 256m
+
+  sandbox:
+    mem_limit: 256m
+
+  plugin_daemon:
+    networks:
+      - ssrf_proxy_network
+      - muslimllm-fabric
+    ports: !override []
+    mem_limit: 512m
+
+  agent_backend:
+    mem_limit: 512m
+
+  local_sandbox:
+    mem_limit: 256m
+
+  ssrf_proxy:
+    mem_limit: 256m
+
+  nginx:
+    ports: !override
+      - "127.0.0.1:3300:80"
+    mem_limit: 192m
+
+  weaviate:
+    mem_limit: 768m
+
+networks:
+  muslimllm-fabric:
+    external: true
+    name: muslimllm-fabric

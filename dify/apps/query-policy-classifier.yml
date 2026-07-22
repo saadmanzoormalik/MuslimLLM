@@ -1,0 +1,616 @@
+app:
+  description: LLM-assisted but deterministically finalized query policy classification.
+  icon: 🧭
+  icon_background: '#E8F1EC'
+  mode: workflow
+  name: QUERY POLICY CLASSIFIER
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/ollama:1.0.0@ae50a2db261bffa7289677f2b0a60e60762ceb187b602113b72425ccbe772dc3
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      enabled: false
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: question-classifier
+      id: start-source-assist_classifier-target
+      source: start
+      sourceHandle: source
+      target: assist_classifier
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-1-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '1'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-2-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '2'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-3-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '3'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-4-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '4'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-5-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '5'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-6-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '6'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-7-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '7'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-8-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '8'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-9-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '9'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-10-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '10'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-11-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '11'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-12-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '12'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-13-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '13'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-14-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '14'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-15-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '15'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-16-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '16'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-17-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '17'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-18-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '18'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-19-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '19'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-20-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '20'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-21-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '21'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: assist_classifier-22-assist_extractor-target
+      source: assist_classifier
+      sourceHandle: '22'
+      target: assist_extractor
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: code
+      id: assist_extractor-source-policy-target
+      source: assist_extractor
+      sourceHandle: source
+      target: policy
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: policy-source-end-target
+      source: policy
+      sourceHandle: source
+      target: end
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: Query
+          max_length: 24000
+          options: []
+          required: true
+          type: paragraph
+          variable: query
+        - label: Current Information Allowed
+          max_length: null
+          options:
+          - 'true'
+          - 'false'
+          required: true
+          type: select
+          variable: current_information_allowed
+          default: 'true'
+      height: 90
+      id: start
+      position:
+        x: 30
+        y: 260
+      positionAbsolute:
+        x: 30
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        title: Question Classifier (Advisory)
+        type: question-classifier
+        query_variable_selector:
+        - start
+        - query
+        model:
+          provider: langgenius/ollama/ollama
+          name: qwen2.5:1.5b
+          mode: chat
+          completion_params:
+            temperature: 0
+        classes:
+        - id: '1'
+          name: general
+          label: general
+        - id: '2'
+          name: scientific
+          label: scientific
+        - id: '3'
+          name: technical
+          label: technical
+        - id: '4'
+          name: medical
+          label: medical
+        - id: '5'
+          name: legal
+          label: legal
+        - id: '6'
+          name: financial
+          label: financial
+        - id: '7'
+          name: personal
+          label: personal
+        - id: '8'
+          name: professional
+          label: professional
+        - id: '9'
+          name: social
+          label: social
+        - id: '10'
+          name: ethical
+          label: ethical
+        - id: '11'
+          name: Qur'an
+          label: Qur'an
+        - id: '12'
+          name: Hadith
+          label: Hadith
+        - id: '13'
+          name: Islamic knowledge
+          label: Islamic knowledge
+        - id: '14'
+          name: fiqh
+          label: fiqh
+        - id: '15'
+          name: family law
+          label: family law
+        - id: '16'
+          name: Islamic finance
+          label: Islamic finance
+        - id: '17'
+          name: history
+          label: history
+        - id: '18'
+          name: Muslim civilization
+          label: Muslim civilization
+        - id: '19'
+          name: geopolitics
+          label: geopolitics
+        - id: '20'
+          name: military history
+          label: military history
+        - id: '21'
+          name: current affairs
+          label: current affairs
+        - id: '22'
+          name: high-risk
+          label: high-risk
+        instruction: Classify the query. This output is advisory; deterministic code sets final policy.
+        vision:
+          enabled: false
+      height: 90
+      id: assist_classifier
+      position:
+        x: 340
+        y: 260
+      positionAbsolute:
+        x: 340
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        title: Parameter Extractor (Advisory)
+        type: parameter-extractor
+        query:
+        - start
+        - query
+        model:
+          provider: langgenius/ollama/ollama
+          name: qwen2.5:1.5b
+          mode: chat
+          completion_params:
+            temperature: 0
+        reasoning_mode: prompt
+        parameters:
+        - name: specified_madhab
+          type: string
+          description: Explicitly named madhab, otherwise empty
+          required: false
+        - name: time_scope
+          type: string
+          description: Explicit time scope, otherwise empty
+          required: false
+        instruction: Extract only explicit values. Never infer personal religious facts.
+        vision:
+          enabled: false
+      height: 90
+      id: assist_extractor
+      position:
+        x: 650
+        y: 260
+      positionAbsolute:
+        x: 650
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        title: Deterministic Policy
+        type: code
+        code_language: python3
+        code: "import json\nimport re\n\ndef main(query: str, current_information_allowed: str = \"true\") -> dict:\n    text\
+          \ = re.sub(r\"\\s+\", \" \", query.lower()).strip()\n    def has(*terms): return any(term in text for term in terms)\n\
+          \    categories = []\n    mapping = {\n        \"scientific\": (\"science\", \"scientific\", \"photosynthesis\"\
+          , \"physics\", \"biology\", \"chemistry\"),\n        \"technical\": (\"python\", \"code\", \"algorithm\", \"api\"\
+          , \"database\", \"engineering\"),\n        \"medical\": (\"medical\", \"disease\", \"treatment\", \"symptom\", \"\
+          medicine\"),\n        \"professional\": (\"sale\", \"business\", \"workplace\", \"client\", \"customer\"),\n   \
+          \     \"ethical\": (\"lie\", \"deceive\", \"honest\", \"fair\", \"ethic\", \"harm\"),\n        \"Qur'an\": (\"quran\"\
+          , \"qur'an\", \"ayah\", \"surah\"),\n        \"Hadith\": (\"hadith\", \"sunnah\", \"bukhari\"),\n        \"fiqh\"\
+          : (\"fiqh\", \"fatwa\", \"madhab\", \"rak'ah\", \"rak‘ah\", \"traveler\", \"halal\", \"haram\"),\n        \"history\"\
+          : (\"history\", \"ottoman\", \"abbasid\", \"umayyad\", \"empire\"),\n        \"Muslim civilization\": (\"muslim\
+          \ world\", \"civilization\", \"caliphate\", \"trade route\"),\n        \"geopolitics\": (\"geopolit\", \"war\",\
+          \ \"government\", \"foreign policy\"),\n        \"current affairs\": (\"today\", \"this week\", \"current\", \"\
+          latest\", \"news\"),\n    }\n    for category, terms in mapping.items():\n        if has(*terms): categories.append(category)\n\
+          \    if not categories: categories = [\"general\"]\n    s = set(categories)\n    fiqh = \"fiqh\" in s\n    science\
+          \ = bool(s & {\"scientific\", \"technical\", \"medical\"})\n    history = bool(s & {\"history\", \"Muslim civilization\"\
+          , \"geopolitics\"})\n    current = current_information_allowed.lower() == \"true\" and \"current affairs\" in s\n\
+          \    values = bool(s & {\"professional\", \"ethical\"})\n    mode = \"fiqh\" if fiqh else \"current_geopolitics\"\
+          \ if current and \"geopolitics\" in s else \"history_and_civilization\" if history else \"scientific_or_technical\"\
+          \ if science else \"islamic_knowledge\" if s & {\"Qur'an\", \"Hadith\"} else \"values_sensitive\" if values else\
+          \ \"general\"\n    citation = fiqh or history or current or \"Hadith\" in s or \"Qur'an\" in s or \"medical\" in\
+          \ s\n    count = 3 if current else 2 if fiqh or history or \"medical\" in s else 1 if science or citation else 0\n\
+          \    policy = {\n        \"categories\": categories, \"answer_mode\": mode, \"values_sensitive\": values,\n    \
+          \    \"quran_required\": \"Qur'an\" in s, \"hadith_required\": \"Hadith\" in s,\n        \"fiqh_sensitive\": fiqh,\
+          \ \"madhab_sensitive\": fiqh and has(\"madhab\", \"traveler\", \"rak'ah\", \"rak‘ah\"),\n        \"scientific_sources_required\"\
+          : science, \"historical_sources_required\": history,\n        \"current_sources_required\": current, \"minimum_source_tier\"\
+          : 3 if citation else 2 if science else 0,\n        \"minimum_source_count\": count, \"source_diversity_required\"\
+          : current or fiqh,\n        \"citation_required\": citation, \"scholar_consultation_may_be_needed\": fiqh or \"\
+          medical\" in s,\n        \"risk_level\": \"high\" if \"medical\" in s else \"medium\" if fiqh or current else \"\
+          low\"\n    }\n    return {\"policy_json\": json.dumps(policy, ensure_ascii=False), \"answer_mode\": mode, \"risk_level\"\
+          : policy[\"risk_level\"]}\n"
+        variables:
+        - variable: query
+          value_selector:
+          - start
+          - query
+          value_type: string
+        - variable: current_information_allowed
+          value_selector:
+          - start
+          - current_information_allowed
+          value_type: string
+        outputs:
+          policy_json:
+            children: null
+            type: string
+          answer_mode:
+            children: null
+            type: string
+          risk_level:
+            children: null
+            type: string
+      height: 90
+      id: policy
+      position:
+        x: 960
+        y: 260
+      positionAbsolute:
+        x: 960
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        title: End
+        type: end
+        outputs:
+        - variable: policy_json
+          value_selector:
+          - policy
+          - policy_json
+          value_type: string
+        - variable: answer_mode
+          value_selector:
+          - policy
+          - answer_mode
+          value_type: string
+        - variable: risk_level
+          value_selector:
+          - policy
+          - risk_level
+          value_type: string
+      height: 90
+      id: end
+      position:
+        x: 1270
+        y: 260
+      positionAbsolute:
+        x: 1270
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 0
+      y: 0
+      zoom: 0.62

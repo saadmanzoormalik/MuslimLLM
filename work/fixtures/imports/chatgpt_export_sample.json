@@ -1,0 +1,38 @@
+[
+  {
+    "id": "chatgpt-sample-1",
+    "title": "Zakat planning notes",
+    "create_time": 1759276800,
+    "update_time": 1761955200,
+    "mapping": {
+      "root": {
+        "id": "root",
+        "message": null,
+        "parent": null,
+        "children": ["m1"]
+      },
+      "m1": {
+        "id": "m1",
+        "message": {
+          "author": {"role": "user"},
+          "create_time": 1761955200,
+          "content": {"content_type": "text", "parts": ["Help me plan a zakat research workflow."]},
+          "metadata": {}
+        },
+        "parent": "root",
+        "children": ["m2"]
+      },
+      "m2": {
+        "id": "m2",
+        "message": {
+          "author": {"role": "assistant"},
+          "create_time": 1761955300,
+          "content": {"content_type": "text", "parts": ["Separate obligatory zakat from voluntary sadaqah and verify exact calculations with a qualified scholar."]},
+          "metadata": {"model_slug": "gpt-export-sample"}
+        },
+        "parent": "m1",
+        "children": []
+      }
+    }
+  }
+]

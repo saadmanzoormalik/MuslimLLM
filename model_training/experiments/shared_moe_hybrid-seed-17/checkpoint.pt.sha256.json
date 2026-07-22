@@ -1,0 +1,20 @@
+{
+  "sha256": "a6202910b863e2e1d5a17aaa631c29c89f552cc5e073cb9549ac33e5fcec2b56",
+  "step": 12,
+  "metadata": {
+    "run_id": "2bd72423-7841-4fe0-903a-55db05960e3b",
+    "code_commit": "unversioned-workspace",
+    "config": "/Users/saadmanzoor/Documents/Codex/2026-06-29/you-are-my-enterprise-ai-systems/model_training/configs/model/unit_moe_shared.yaml",
+    "config_sha256": "cc32db9a6530d557113a2236bb5563cab25aebb78351c8c4b090b42bbcd2f8f1",
+    "dataset_version": "synthetic-stage0-v1",
+    "curriculum_version": "random-baseline-v1",
+    "tokenizer_version": "byte-v1",
+    "optimizer": "hybrid",
+    "seed": 17,
+    "hardware": "macOS-26.5.1-x86_64-i386-64bit",
+    "torch_version": "2.2.2",
+    "precision": "float32",
+    "world_size": 1,
+    "estimated_cost_usd": 0.0
+  }
+}

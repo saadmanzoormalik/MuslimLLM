@@ -1,0 +1,13 @@
+{
+  "sha256": "77c425ee28474adcb6ef6394226bb1ff13a0039f4b83c7c2a3b5eab8a6428135",
+  "step": 6,
+  "metadata": {
+    "run_id": "d3e63a8f-3cb1-4a2d-afe4-8d71ee716b96",
+    "config": "/Users/saadmanzoor/Documents/Codex/2026-06-29/you-are-my-enterprise-ai-systems/model_training/configs/model/unit_moe_shared.yaml",
+    "dataset_version": "synthetic-stage0-v1",
+    "tokenizer_version": "byte-v1",
+    "optimizer": "hybrid",
+    "seed": 17,
+    "world_size": 1
+  }
+}

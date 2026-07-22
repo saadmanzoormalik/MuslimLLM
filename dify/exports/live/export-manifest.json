@@ -1,0 +1,57 @@
+{
+  "dify_version": "1.16.0",
+  "applications": {
+    "QUERY POLICY CLASSIFIER": {
+      "app_id": "e4585356-4e30-4641-86d8-ab2a64a0b96b",
+      "file": "query-policy-classifier.yml"
+    },
+    "FINAL ANSWER COMPOSER": {
+      "app_id": "d0bdef8f-87aa-4328-a5ce-389a6e97b95a",
+      "file": "final-answer-composer.yml"
+    },
+    "ISLAMIC VALUES ALIGNMENT REVIEWER": {
+      "app_id": "96210406-791e-4e9e-9afd-582f4d489adf",
+      "file": "islamic-values-alignment-reviewer.yml"
+    },
+    "HISTORICAL AND GEOPOLITICAL REVIEWER": {
+      "app_id": "37a2af7c-ccc3-4592-b829-73434434d8f3",
+      "file": "historical-and-geopolitical-reviewer.yml"
+    },
+    "SCIENTIFIC ACCURACY REVIEWER": {
+      "app_id": "ee65bdff-91ff-49c5-8ada-c120022022b3",
+      "file": "scientific-accuracy-reviewer.yml"
+    },
+    "FIQH AND MADHAB REVIEWER": {
+      "app_id": "c86b4209-6b7b-4d84-a3c6-3e5c366cbcd2",
+      "file": "fiqh-and-madhab-reviewer.yml"
+    },
+    "ISLAMIC SOURCE VERIFIER": {
+      "app_id": "125806d1-ca40-4bf8-b8ff-42428f0fea05",
+      "file": "islamic-source-verifier.yml"
+    },
+    "CITATION AND HALLUCINATION VERIFIER": {
+      "app_id": "dbab72e1-303b-455d-b931-42bbfda263ca",
+      "file": "citation-and-hallucination-verifier.yml"
+    },
+    "DATASET GOVERNANCE REVIEW": {
+      "app_id": "74c0b495-5928-4cbc-948c-28b39c0d1881",
+      "file": "dataset-governance-review.yml"
+    },
+    "DATASET CANDIDATE INGESTION": {
+      "app_id": "12b045a5-bfe4-444d-8e80-f52d0299fe54",
+      "file": "dataset-candidate-ingestion.yml"
+    },
+    "LIVE RESEARCH": {
+      "app_id": "46c0f7a1-a958-43da-a7b1-d2de28f055a7",
+      "file": "live-research.yml"
+    },
+    "GOVERNED RETRIEVAL": {
+      "app_id": "7577010d-e03a-4b5a-a087-904f18d3192b",
+      "file": "governed-retrieval.yml"
+    },
+    "MUSLIM KNOWLEDGE FABRIC": {
+      "app_id": "dac307a6-75ce-4df9-8dc2-ee95a967301a",
+      "file": "muslim-knowledge-fabric.yml"
+    }
+  }
+}

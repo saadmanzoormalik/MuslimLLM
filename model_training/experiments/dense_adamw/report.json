@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "run_id": "6492ffe4-61c3-4d84-8b20-4cd99779163b",
+    "config": "/Users/saadmanzoor/Documents/Codex/2026-06-29/you-are-my-enterprise-ai-systems/model_training/configs/model/unit_dense.yaml",
+    "dataset_version": "synthetic-stage0-v1",
+    "tokenizer_version": "byte-v1",
+    "optimizer": "adamw",
+    "seed": 17,
+    "world_size": 1
+  },
+  "parameter_counts": {
+    "total": 119104,
+    "activated_estimate": 119104
+  },
+  "steps": 6,
+  "tokens": 384,
+  "elapsed_seconds": 0.13172503799978585,
+  "tokens_per_second": 2915.1633268128135,
+  "initial_loss": 6.2652387619018555,
+  "final_loss": 6.22932243347168,
+  "metrics": [
+    {
+      "step": 1,
+      "loss": 6.2652387619018555,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.8950172662734985,
+      "routing": []
+    },
+    {
+      "step": 2,
+      "loss": 6.265173435211182,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.7715367078781128,
+      "routing": []
+    },
+    {
+      "step": 3,
+      "loss": 6.275925159454346,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.8007111549377441,
+      "routing": []
+    },
+    {
+      "step": 4,
+      "loss": 6.174365520477295,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.7351118326187134,
+      "routing": []
+    },
+    {
+      "step": 5,
+      "loss": 6.277129173278809,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.82494056224823,
+      "routing": []
+    },
+    {
+      "step": 6,
+      "loss": 6.22932243347168,
+      "auxiliary_loss": 0.0,
+      "gradient_norm": 1.8377068042755127,
+      "routing": []
+    }
+  ],
+  "optimizer_diagnostics": {
+    "muon_parameter_count": 0,
+    "adamw_parameter_count": 18,
+    "muon_update_norm_mean": 0.0,
+    "nan_inf_events": 0
+  },
+  "checkpoint": {
+    "sha256": "716efb8a2f8d5e1d3cb2c1ec835462a5d9c6c56c86114286059ad7d6795d83fe",
+    "step": 6,
+    "metadata": {
+      "run_id": "6492ffe4-61c3-4d84-8b20-4cd99779163b",
+      "config": "/Users/saadmanzoor/Documents/Codex/2026-06-29/you-are-my-enterprise-ai-systems/model_training/configs/model/unit_dense.yaml",
+      "dataset_version": "synthetic-stage0-v1",
+      "tokenizer_version": "byte-v1",
+      "optimizer": "adamw",
+      "seed": 17,
+      "world_size": 1
+    }
+  }
+}

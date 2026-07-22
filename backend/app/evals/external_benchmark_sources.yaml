@@ -1,0 +1,57 @@
+models:
+  - provider: OpenAI
+    display_name: OpenAI Flagship
+    model_name: flagship
+    source_type: manual
+    confidence_level: low
+    notes: Configure provider/public benchmark sources before using scores.
+  - provider: OpenAI
+    display_name: OpenAI Reasoning
+    model_name: reasoning
+    source_type: manual
+    confidence_level: low
+  - provider: Anthropic
+    display_name: Claude Flagship
+    model_name: flagship
+    source_type: manual
+    confidence_level: low
+  - provider: Anthropic
+    display_name: Claude Reasoning
+    model_name: reasoning
+    source_type: manual
+    confidence_level: low
+  - provider: Google
+    display_name: Gemini Flagship
+    model_name: flagship
+    source_type: manual
+    confidence_level: low
+  - provider: DeepSeek
+    display_name: DeepSeek Reasoning
+    model_name: reasoning
+    source_type: manual
+    confidence_level: low
+  - provider: Qwen
+    display_name: Qwen Flagship
+    model_name: flagship
+    source_type: manual
+    confidence_level: low
+  - provider: Zhipu
+    display_name: GLM Flagship
+    model_name: flagship
+    source_type: manual
+    confidence_level: low
+  - provider: Meta
+    display_name: Llama Open
+    model_name: open
+    source_type: manual
+    confidence_level: low
+  - provider: Mistral
+    display_name: Mistral
+    model_name: latest
+    source_type: manual
+    confidence_level: low
+  - provider: xAI
+    display_name: Grok
+    model_name: latest
+    source_type: manual
+    confidence_level: low
