@@ -39,10 +39,21 @@ const questions = [
 
 type State = { current_step: number; answers: Record<string, string>; completed: boolean };
 
+async function fetchWithTimeout(input: RequestInfo | URL, init: RequestInit = {}) {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 15000);
+  try {
+    return await fetch(input, { ...init, signal: controller.signal });
+  } finally {
+    window.clearTimeout(timeout);
+  }
+}
+
 export default function OnboardingPage() {
   const router = useRouter();
   const [state, setState] = useState<State>({ current_step: 0, answers: {}, completed: false });
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
   const [previewMode, setPreviewMode] = useState(false);
   const step = Math.max(0, Math.min(Number(state.current_step ?? 0), 2));
   const question = questions[step] ?? questions[0];
@@ -61,6 +72,7 @@ export default function OnboardingPage() {
   async function select(value: string) {
     if (busy) return;
     setBusy(true);
+    setError("");
     if (previewMode) {
       setState((current) => ({
         answers: { ...current.answers, [question.key]: value },
@@ -70,19 +82,29 @@ export default function OnboardingPage() {
       setBusy(false);
       return;
     }
-    const response = await fetch(`${API_BASE}/onboarding/answer`, {
-      method: "POST", credentials: "include", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ key: question.key, value, step })
-    });
-    if (response.ok) {
+    try {
+      const response = await fetchWithTimeout(`${API_BASE}/onboarding/answer`, {
+        method: "POST", credentials: "include", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key: question.key, value, step })
+      });
+      if (!response.ok) {
+        setError("We couldn’t save that choice. Check your connection and try again.");
+        return;
+      }
       const next = await response.json();
       setState((current) => ({ ...current, ...next }));
       if (step === 2) {
-        const completed = await fetch(`${API_BASE}/onboarding/complete`, { method: "POST", credentials: "include" });
+        const completed = await fetchWithTimeout(`${API_BASE}/onboarding/complete`, {
+          method: "POST", credentials: "include"
+        });
         if (completed.ok) router.push("/auth");
+        else setError("Your choices are saved. Tap again to finish setup.");
       }
+    } catch {
+      setError("We couldn’t reach Muslim LLM. Check your connection and try again.");
+    } finally {
+      setBusy(false);
     }
-    setBusy(false);
   }
 
   function back() {
@@ -114,7 +136,7 @@ export default function OnboardingPage() {
             </section>
           </div>
         ) : (
-          <div className="flex flex-1 items-center py-10"><div className="w-full"><OnboardingQuestion title={question.title} options={[...question.options]} selected={state.answers[question.key]} busy={busy} onSelect={select} /></div></div>
+          <div className="flex flex-1 items-center py-10"><div className="w-full"><OnboardingQuestion title={question.title} options={[...question.options]} selected={state.answers[question.key]} busy={busy} onSelect={select} />{error ? <p className="mx-auto mt-4 max-w-xl rounded-md border border-red-300/60 bg-red-50 px-4 py-3 text-center text-sm text-red-800" role="alert">{error}</p> : null}</div></div>
         )}
         <footer className="flex min-h-10 items-center justify-between gap-3 text-xs text-muted-foreground">
           {!state.completed && step > 0 ? <button className="inline-flex items-center gap-1.5 rounded-md px-2 py-1.5 hover:bg-muted hover:text-foreground" onClick={back} type="button"><ArrowLeft size={14} /> Back</button> : <span />}
