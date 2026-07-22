@@ -457,14 +457,14 @@ function ChatPageContent() {
       ) : null}
 
       <section className="geometric-field flex min-w-0 flex-1 flex-col">
-        <header className="relative z-10 flex h-14 shrink-0 items-center justify-between border-b bg-background/88 px-3 backdrop-blur-xl min-[900px]:h-16 min-[900px]:px-5">
+        <header className="relative z-10 flex h-[52px] shrink-0 items-center justify-between border-b bg-background/92 px-3 backdrop-blur-xl min-[900px]:h-16 min-[900px]:px-5">
           <div className="flex min-w-0 items-center gap-3">
             <Button aria-label="Open navigation" className="h-9 w-9 shrink-0 p-0 min-[900px]:hidden" onClick={() => setSidebarOpen(true)} title="Open navigation">
               <Menu size={17} />
             </Button>
             <div className="absolute left-1/2 max-w-[55vw] -translate-x-1/2 text-center min-[900px]:static min-[900px]:max-w-none min-[900px]:translate-x-0 min-[900px]:text-left">
               <div className="flex min-w-0 items-center gap-2">
-                <h1 className="truncate text-sm font-semibold sm:text-base">{activeProject?.name || "Muslim LLM"}</h1>
+                <h1 className="truncate text-[15px] font-semibold leading-5 min-[900px]:text-base">{activeProject?.name || "Muslim LLM"}</h1>
                 {activeProject ? <span className="hidden min-[900px]:inline-flex"><Badge>Project</Badge></span> : null}
                 <span className={`hidden rounded-full px-2 py-0.5 text-[11px] font-medium min-[900px]:inline-flex ${ready === false ? "bg-red-500/10 text-red-700 dark:text-red-300" : "bg-primary/10 text-primary"}`}>
                   {ready === false ? "Offline" : "Ready"}
@@ -501,7 +501,7 @@ function ChatPageContent() {
           {messages.length === 0 ? (
             <EmptyState activeProject={activeProject} onPrompt={sendMessage} />
           ) : (
-            <div className="mx-auto max-w-3xl px-4 pb-6 pt-5 sm:py-10">
+            <div className="mx-auto max-w-3xl px-4 pb-7 pt-6 sm:py-10">
               {messages.map((message, index) => {
                 const priorUser = [...messages.slice(0, index)].reverse().find((item) => item.role === "user");
                 return (
@@ -537,7 +537,7 @@ function ChatPageContent() {
                 }}
                 placeholder="Ask with Muslim values..."
                 style={{ minHeight: 0 }}
-                className="h-12 max-h-40 min-h-0 w-full resize-none border-0 bg-transparent px-3 py-2 text-base leading-6 shadow-none placeholder:text-muted-foreground/70 focus:ring-0 sm:h-16 sm:text-[15px]"
+                className="h-12 max-h-40 min-h-0 w-full resize-none border-0 bg-transparent px-3 py-2.5 text-base leading-6 shadow-none placeholder:text-muted-foreground/65 focus:ring-0 sm:h-16 sm:py-2 sm:text-[15px]"
               />
               <div className="flex items-center justify-between gap-2 px-1.5 pb-1">
                 <div className="flex min-w-0 items-center rounded-full bg-muted/70 p-0.5" role="group" aria-label="Reasoning depth">
@@ -545,7 +545,7 @@ function ChatPageContent() {
                     <button
                       key={depth}
                       type="button"
-                      className={`h-7 rounded-full px-1.5 text-[10px] font-medium capitalize transition sm:px-2 sm:text-[11px] ${reasoningDepth === depth ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+                      className={`h-7 rounded-full px-1.5 text-[10px] font-medium leading-4 capitalize transition sm:px-2 sm:text-[11px] ${reasoningDepth === depth ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
                       onClick={() => setReasoningDepth(depth)}
                       aria-pressed={reasoningDepth === depth}
                     >
@@ -582,18 +582,18 @@ function EmptyState({ activeProject, onPrompt }: { activeProject?: Project; onPr
   ];
 
   return (
-    <div className="mx-auto flex min-h-full max-w-3xl flex-col justify-center px-5 pb-20 pt-8 sm:px-4 sm:py-10">
-      <div className="mb-4 inline-flex w-fit items-center gap-2 text-xs font-medium text-muted-foreground sm:mb-5 sm:rounded-full sm:border sm:bg-card/80 sm:px-3 sm:py-1 sm:shadow-sm">
+    <div className="mx-auto flex min-h-full max-w-3xl flex-col justify-center px-5 pb-24 pt-8 sm:px-4 sm:py-10">
+      <div className="mb-3.5 inline-flex w-fit items-center gap-2 text-xs font-medium leading-5 text-muted-foreground sm:mb-5 sm:rounded-full sm:border sm:bg-card/80 sm:px-3 sm:py-1 sm:shadow-sm">
         <Sparkles size={14} /> {activeProject ? activeProject.name : "General workspace"}
       </div>
-      <h2 className="display-type max-w-3xl text-[2.25rem] font-semibold leading-[1.08] sm:text-6xl sm:leading-[1.02]">
+      <h2 className="display-type max-w-3xl text-[1.875rem] leading-[1.22] sm:text-6xl sm:leading-[1.02]">
         What can I help with?
       </h2>
-      <div className="mt-7 grid gap-2 sm:grid-cols-2">
+      <div className="mt-6 grid gap-2 sm:mt-7 sm:grid-cols-2">
         {prompts.map((prompt, index) => (
           <button
             key={prompt}
-            className={`prompt-chip rounded-xl border px-4 py-3 text-left text-sm font-medium transition hover:-translate-y-0.5 hover:border-primary/40 ${index > 1 ? "hidden sm:block" : ""}`}
+            className={`prompt-chip min-h-12 rounded-xl border px-4 py-3 text-left text-[13px] font-medium leading-5 transition hover:border-primary/40 sm:text-sm sm:hover:-translate-y-0.5 ${index > 1 ? "hidden sm:block" : ""}`}
             onClick={() => onPrompt(prompt)}
           >
             {prompt}

@@ -16,7 +16,7 @@ export function UserMessage({ content, onCopy, onEdit }: Props) {
     <article className="mb-7 flex justify-end gap-3 sm:mb-8 sm:gap-4" aria-label="You said" data-message-role="user">
       <div className="max-w-[90%] sm:max-w-[78%]">
         <div className="rounded-[20px] bg-primary px-4 py-2.5 text-primary-foreground shadow-sm sm:rounded-2xl sm:py-3 sm:shadow-lg">
-          <p className="whitespace-pre-wrap leading-7">{content}</p>
+          <p className="whitespace-pre-wrap text-[15px] leading-6 sm:text-base sm:leading-7">{content}</p>
         </div>
         <div className="mt-1.5 flex items-center justify-end gap-1 sm:mt-2">
           <Button className="h-8 px-2 opacity-70 hover:opacity-100" title="Copy prompt" onClick={onCopy}><Copy size={13} /></Button>
